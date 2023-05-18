@@ -3,6 +3,8 @@ package com.green.board;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BoardService {
 
@@ -18,7 +20,19 @@ public class BoardService {
         return mapper.insBoard(entity);
     }
 
+    public List<BoardEntity> selBoardAll() {
+        return mapper.selBoardAll();
+    }
+
+    public BoardEntity selBoardById(BoardEntity entity) {
+        return mapper.selBoardById(entity);
+    }
+
     public int updBoard(BoardEntity entity) {
         return mapper.updBoard(entity);
+    }
+
+    public int delBoard(BoardEntity entity) {
+        return mapper.delBoard(entity);
     }
 }

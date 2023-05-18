@@ -11,6 +11,21 @@
         ( #{title}, #{ctnt}, #{writer} )
     </insert>
 
+    <select id="selBoardAll" resultType="BoardEntity">
+        SELECT
+            iboard, title, writer
+            , created_at createdAt, updated_at updatedAt
+        FROM t_board
+    </select>
+
+    <select id="selBoardById" resultType="BoardEntity">
+        SELECT
+            iboard, title, ctnt, writer
+            , created_at createdAt, updated_at updatedAt
+        FROM t_board
+        WHERE iboard = #{iboard}
+    </select>
+
     <update id="updBoard">
         UPDATE t_board
         SET title = #{title}
@@ -19,5 +34,10 @@
         , updated_at = current_timestamp()
         WHERE iboard = #{iboard}
     </update>
+
+    <delete id="delBoard">
+        DELETE FROM t_board
+        WHERE iboard = #{iboard}
+    </delete>
 
 </mapper>
